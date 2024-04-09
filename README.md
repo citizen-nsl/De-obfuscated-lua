@@ -3,7 +3,7 @@
 
 ## แนวทางการทำ วิศวกรรม (ย้อนกลับ) หรือเรียกว่า obfuscator
 
-> [แนวทางการเริ่มต้น](https://guyinatuxedo.github.io/00-intro/index.html)
+## วิศวกรรม (ย้อนกลับ) [แนวทางการเริ่มต้น](https://guyinatuxedo.github.io/00-intro/index.html)
 
 
 ## ทำความเข้าใจการทำงานตัวเข้ารหัส หรือ obfuscator เพื่อให้ทราบการทำงาน มีอยู่ไม่กี่รูปแบบ ยกตัวอย่าง รูปแบบ byte code และ Vm หรือ Encryption String
