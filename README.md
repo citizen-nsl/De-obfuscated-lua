@@ -1,4 +1,4 @@
-# De-obfuscated-lua
+# Deobfuscated
 
 
 ## แนวทางการทำ วิศวกรรม (ย้อนกลับ) หรือเรียกว่า obfuscator
