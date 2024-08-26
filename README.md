@@ -1,17 +1,47 @@
-# Deobfuscated
+# แนวทางการทำวิศวกรรมย้อนกลับ
 
+## บทนำ
 
-## แนวทางการทำ วิศวกรรม (ย้อนกลับ) หรือเรียกว่า obfuscator
+การทำวิศวกรรมย้อนกลับ (Reverse Engineering) คือกระบวนการในการวิเคราะห์ผลิตภัณฑ์หรือระบบเพื่อนำข้อมูลมาใช้สร้างผลิตภัณฑ์ใหม่ ทำความเข้าใจการทำงานของระบบที่มีอยู่ หรือปรับปรุงระบบ โดยมีวัตถุประสงค์ที่หลากหลาย เช่น การศึกษา การทำซ้ำ การพัฒนา หรือการปรับปรุงระบบ
 
-## วิศวกรรม (ย้อนกลับ) [แนวทางการเริ่มต้น](https://guyinatuxedo.github.io/00-intro/index.html)
+## วัตถุประสงค์
 
+- ทำความเข้าใจการทำงานภายในของซอฟต์แวร์หรือระบบ
+- ระบุจุดอ่อนของระบบเพื่อปรับปรุงหรือแก้ไข
+- นำฟีเจอร์จากซอฟต์แวร์ที่มีอยู่ไปใช้ในโปรเจคใหม่
+- ทำให้ระบบสามารถทำงานร่วมกับแพลตฟอร์มหรือเทคโนโลยีใหม่ ๆ ได้
 
-## ทำความเข้าใจการทำงานตัวเข้ารหัส หรือ obfuscator เพื่อให้ทราบการทำงาน มีอยู่ไม่กี่รูปแบบ ยกตัวอย่าง รูปแบบ byte code และ Vm หรือ Encryption String
+## ขั้นตอนในการทำวิศวกรรมย้อนกลับ
 
-### ตัวอย่างการโค๊ดสำหรับ [Vm](https://github.com/RealSourceLeaks/psu-source-code/blob/main/IronBrew2/Obfuscator/VM%20Generation/VMStrings.cs#L1)
+1. **ระบุวัตถุประสงค์**: ระบุเป้าหมายของการทำวิศวกรรมย้อนกลับ เช่น การทำความเข้าใจการทำงาน การตรวจหาจุดอ่อน หรือการปรับแต่งโค้ด
+2. **รวบรวมข้อมูล**: รวบรวมข้อมูลสำคัญ เช่น ไฟล์ไบนารี โค้ดต้นฉบับ และข้อมูลที่เกี่ยวข้อง
+3. **การวิเคราะห์โครงสร้างข้อมูลและโปรโตคอล**: ใช้เครื่องมือเช่น Disassembler และ Decompiler เพื่อตรวจสอบโค้ด
+4. **ดีบักและวิเคราะห์หน่วยความจำ**: ใช้เครื่องมือดีบักและวิเคราะห์หน่วยความจำเพื่อเข้าใจการทำงานเชิงลึก
+5. **จัดทำเอกสาร**: จดบันทึกขั้นตอนและผลลัพธ์การวิเคราะห์เพื่อการใช้งานในอนาคต
 
-## ByteCode [Bytecode](https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html)
+## เครื่องมือที่ใช้
 
-## Unluac [Unluac](https://sourceforge.net/projects/unluac/)
+- **Disassembler**: IDA Pro, Ghidra, Radare2
+- **Decompiler**: JD-GUI, Ghidra, RetDec
+- **Debugger**: GDB, OllyDbg, x64dbg
+- **Memory Analysis**: Volatility, Memdump
+- **Network Analysis**: Wireshark, TCPDump
 
-![image](https://github.com/citizen-nsl/Deobfuscator/assets/155259170/7916292f-7b93-49ad-83ef-6cff6521a771)
+## การทำ Deobfuscation
+
+ในบางกรณี โค้ดอาจถูกเข้ารหัสหรือทำให้ยุ่งยาก (obfuscated) ซึ่งต้องทำการถอดรหัส (deobfuscate) เพื่อให้อ่านได้ง่ายขึ้น มีหลายเทคนิคที่ใช้ เช่น การแปลง bytecode หรือ VM เพื่อทำความเข้าใจวิธีการทำงาน
+
+### ตัวอย่างการทำ Deobfuscation
+
+- **ByteCode**: ใช้ [Unluac](https://sourceforge.net/projects/unluac/) ในการถอดรหัส bytecode ของ Lua
+- **VM Deobfuscation**: ศึกษาตัวอย่างการทำงานของ [VMStrings.cs](https://github.com/RealSourceLeaks/psu-source-code/blob/main/IronBrew2/Obfuscator/VM%20Generation/VMStrings.cs#L1)
+
+![ภาพประกอบ](https://github.com/citizen-nsl/Deobfuscator/assets/155259170/7916292f-7b93-49ad-83ef-6cff6521a771)
+
+## พิจารณาด้านกฎหมาย
+
+ก่อนที่จะดำเนินการทำวิศวกรรมย้อนกลับ ตรวจสอบให้แน่ใจว่าคุณปฏิบัติตามกฎหมายและข้อกำหนดในสัญญาอนุญาตใช้งานของซอฟต์แวร์ การทำวิศวกรรมย้อนกลับควรทำอย่างมีจริยธรรมและความรับผิดชอบ
+
+## ใบอนุญาต
+
+เอกสารนี้ได้รับอนุญาตภายใต้ใบอนุญาต MIT โปรดดูไฟล์ LICENSE สำหรับรายละเอียดเพิ่มเติม
